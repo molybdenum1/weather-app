@@ -1,0 +1,16 @@
+
+.main {
+    text-align: center;
+    display: grid;
+    grid-template-rows: 200px 400px;
+}
+    
+.main-top {
+    padding-top: 100px;
+}
+
+.main-center {
+    padding-top: 200px;
+    display: flex;
+    flex-direction: column;
+}
