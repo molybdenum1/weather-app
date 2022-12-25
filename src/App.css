@@ -6,12 +6,24 @@ body {
     font-family: 'Roboto', sans-serif;
     font-size: 16pt;
 }
-
+button {
+    background: none;
+	color: inherit;
+	border: none;
+	padding: 0;
+	font: inherit;
+	cursor: pointer;
+	outline: inherit;
+}
+#standard-basic {
+    color: white;
+   
+}
 .card {
     margin: 30px;
     background-color: #7b946b;
     border-radius: 5px;
-    width: 250px;
+    width: 280px;
     padding-top: 14px;
     padding-bottom: 18px;
     height: 130px;
@@ -47,7 +59,18 @@ body {
     margin-top: 10px;
     font-weight: 900;
 }
+
+.card-footer {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}
+
 .card-temp-feel {
     margin-top: 10px;
     
+}
+.card-del {
+    margin-top: 4px;
+    margin-right: 20px;
 }

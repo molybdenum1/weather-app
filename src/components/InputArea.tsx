@@ -1,8 +1,9 @@
 // import { TextField } from "@mui/material";
 import { useDispatch } from 'react-redux';
-// import Button from "@mui/material/Button";
+import Button from "@mui/material/Button";
 import { weaterListAction } from "../store/weather/weather.slice";
 import { useState } from "react";
+import TextField from '@mui/material/TextField';
 
 const InputArea = () => {
     
@@ -17,12 +18,25 @@ const InputArea = () => {
     
     return ( 
         <form onSubmit={handleAddCity}>
-            <input
+            {/* <input
             value={input}
             onInput={(e:React.ChangeEvent<HTMLInputElement>) => setInput(e.target.value)}
-            />
+            /> */}
+            <TextField
+                id="standard-basic"
+                variant='standard'
+                color='secondary'
                 
-            <button>Add</button>
+                size="small"
+                label="Enter your city"
+                value={input}
+                onChange={(e:React.ChangeEvent<HTMLInputElement>) => setInput(e.target.value)}
+            />   
+            <button>
+                <Button size="small" variant="contained" color="secondary">
+                    Add
+                </Button>
+            </button>
         </form>
      );
 }

@@ -5,7 +5,7 @@ const ls = localStorage.getItem('cities');
 const items = ls !== null ? JSON.parse(ls): [];
 
 const initialState= {
-    cities:items
+    cities: items
 }
 
 
@@ -18,8 +18,9 @@ export const weatherSlice = createSlice({
             localStorage.setItem('cities',  JSON.stringify(state.cities.map((item: any) => item)))
         },
         removeItem: (state, action) => {
-            localStorage.setItem('cities', JSON.stringify(state.cities.splice(action.payload.city, 1)))
-            return state.cities.filter((el: any )=> el !== action.payload.city)
+            state.cities = [...state.cities.filter((el: any )=> el !== action.payload)];
+            localStorage.setItem('cities', JSON.stringify(state.cities.map((item: any) => item)))
+            return state;
         },
         
     }

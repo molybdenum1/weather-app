@@ -1,6 +1,7 @@
 import { useGetWeatherByCityQuery } from "../store/weather/weather.api";
 import { useDispatch } from 'react-redux';
 import { weaterListAction } from "../store/weather/weather.slice";
+import { Button } from "@mui/material";
 
 interface iCardProps {city: string} 
 
@@ -25,7 +26,7 @@ const Card = ({city}:  iCardProps) => {
                     <div className="card-desc">
                         <div className="card-weather">
                             {
-                                (data && data.weather && data.weather[0] && data.weather[0].description) && (data.weather[0].description)
+                                (data && data.weather && data.weather[0] && data.weather[0].main) && (data.weather[0].main)
                             }
                             
                         </div>
@@ -34,13 +35,18 @@ const Card = ({city}:  iCardProps) => {
                                 (data && data.main && data.main.temp_max) && (Math.floor(data?.main?.temp_max -  273)) 
                             } °C
                         </div>
-                        <div className="card-temp-feel">
-                            Feels like: {(data && data.main && data.main.feels_like) && (Math.floor(data?.main?.feels_like - 273))} °C
+                        <div className="card-footer">
+                            <div className="card-temp-feel">
+                                Feels like: {(data && data.main && data.main.feels_like) && (Math.floor(data?.main?.feels_like - 273))} °C
+                            </div> 
+                            <div className="card-del">
+                                <Button size="small" onClick={() => dispatch(weaterListAction.removeItem(city))} variant="contained" color="secondary">
+                                    Del
+                                </Button>
+                            </div>
                         </div>
                     </div>
-                    <div className="card-del">
-                        <button onClick={() => dispatch(weaterListAction.removeItem(city))}>Del</button>
-                    </div>
+                   
                 </div>
             }
         </div>
