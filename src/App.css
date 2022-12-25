@@ -1,0 +1,53 @@
+@import url('https://fonts.googleapis.com/css2?family=Francois+One&family=Roboto:ital,wght@0,100;0,400;1,900&display=swap');
+
+body {
+    background-color: #323232;
+    color: white;
+    font-family: 'Roboto', sans-serif;
+    font-size: 16pt;
+}
+
+.card {
+    margin: 30px;
+    background-color: #7b946b;
+    border-radius: 5px;
+    width: 250px;
+    padding-top: 14px;
+    padding-bottom: 18px;
+    height: 130px;
+}
+
+.card-loading {
+    margin-top: 50px;
+}
+
+.card-header {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}
+.card-name {
+    margin-left: 20px;
+    font-weight: 400;
+    font-family: 'Francois One', sans-serif;
+}
+
+.card-img {
+    margin-right: 20px;
+}
+
+.card-desc {
+    margin-top: 10px;
+    margin-left: 20px;
+    text-align: left;
+    font-weight: 100;
+    padding-bottom: 10px;
+}
+.card-temp {
+    margin-top: 10px;
+    font-weight: 900;
+}
+.card-temp-feel {
+    margin-top: 10px;
+    
+}

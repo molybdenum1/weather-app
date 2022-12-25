@@ -14,14 +14,32 @@ const Card = ({city}:  iCardProps) => {
     return ( 
         <div className="card">
             {
-                isLoading? <div>Loading...</div> :
+                isLoading? <div className="card-loading">Loading...</div> :
                 
-                <div>
-                    {city==='Moscow'? 'boloto': city}
-                    <div>
-                        {
-                            (data && data.main && data.main.temp_max) && (Math.floor(data?.main?.temp_max -  273))
-                        }
+                <div className="card-container">
+                    <div className="card-header">
+                        <div className="card-name">  { city=== 'Moscow'? 'boloto': city} </div>
+                        <div className="card-img">img</div>
+                    </div>
+
+                    <div className="card-desc">
+                        <div className="card-weather">
+                            {
+                                (data && data.weather && data.weather[0] && data.weather[0].description) && (data.weather[0].description)
+                            }
+                            
+                        </div>
+                        <div className="card-temp">
+                            {
+                                (data && data.main && data.main.temp_max) && (Math.floor(data?.main?.temp_max -  273)) 
+                            } °C
+                        </div>
+                        <div className="card-temp-feel">
+                            Feels like: {(data && data.main && data.main.feels_like) && (Math.floor(data?.main?.feels_like - 273))} °C
+                        </div>
+                    </div>
+                    <div className="card-del">
+                        <button onClick={() => dispatch(weaterListAction.removeItem(city))}>Del</button>
                     </div>
                 </div>
             }
