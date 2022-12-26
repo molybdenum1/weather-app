@@ -1,0 +1,9 @@
+.card-page {
+  margin: 30px auto;
+  background-color: #7b946b;
+  border-radius: 5px;
+  width: 500px;
+  height: 250px;
+  padding-top: 14px;
+  padding-bottom: 18px;
+}
