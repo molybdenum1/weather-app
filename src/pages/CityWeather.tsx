@@ -2,36 +2,26 @@ import { useParams } from "react-router-dom";
 import { useState } from 'react';
 import { useGet5DayWeatherByCityQuery } from "../store/weather/weather.api";
 import "./cityWeather.css";
-import ChartBar, { iChartData } from "../components/ChartBar";
+import ChartBar from "../components/ChartBar";
+import { Link } from "react-router-dom";
 
 const CityWeather = () => {
   const { id } = useParams();
   const { error, isLoading, data } = useGet5DayWeatherByCityQuery(id);
-  console.log(data);
 
-//   const [weatherData, setData] = useState({
-//     labels:,
-//     datasets: [
-//         {
-//             label: "Weather forecast for 5 day every three hour",
-//             data: data?.list.map(w => Math.round(w.main.temp) - 273)
-//         }
-//     ]
-//   })
-    const weatherData = {
-        labels: data?.list.map(w => w.dt_txt).filter(e => e.includes('12:00:00')),
-        datasets: [
-            {
-                label: "Weather forecast for 5 day every three hour",
-                data: data?.list.map(w => Math.round(w.main.temp) - 273)
-            }
-        ]
-    }
+    const Arr = data?.list.filter(i => i.dt_txt.includes('12:00:00'))
+    const dates = Arr?.map(i=>i.dt_txt) || []
+    const temp = Arr?.map(e=>Math.round(e.main.temp) - 273)|| []
+    
+
 
   if (error) return <div>Failed</div>;
 
   return (
+    <div>
+        <Link to='/'>Home</Link>
     <div className="card-page">
+       
       {isLoading ? (
         <div className="card-loading">Loading...</div>
       ) : (
@@ -69,10 +59,11 @@ const CityWeather = () => {
             </div>
           </div>
           <div className="main-center">
-            <ChartBar chartData={weatherData}/>
+            <ChartBar labels={temp} data={dates} />
           </div>
         </div>
       )}
+    </div>
     </div>
   );
 };

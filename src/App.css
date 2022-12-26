@@ -28,15 +28,7 @@ button {
     padding-bottom: 18px;
     height: 130px;
 }
-.card-page {
-    margin: 30px auto;
-    background-color: #7b946b;
-    border-radius: 5px;
-    width: 480px;
-    height: 300px;
-    padding-top: 14px;
-    padding-bottom: 18px;
-}
+
 
 .card-loading {
     margin-top: 50px;
