@@ -1,7 +1,7 @@
 {
   "name": "codica",
   "version": "0.1.0",
-  "homepage": "https://molybdenum1.github.io/weather-app",
+  "homepage": "https://molybdenum1.github.io/weather-app/",
   "private": true,
   "dependencies": {
     "@emotion/react": "^11.10.5",
